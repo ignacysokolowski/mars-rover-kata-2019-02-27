@@ -27,10 +27,10 @@ class MarsRoverTests {
 
 class Rover(val direction: Direction, var coordinates: Coordinates) {
     fun moveForward() {
-        if (direction == Direction.north()) {
-            coordinates = Coordinates(2, 4)
+        coordinates = if (direction == Direction.north()) {
+            Coordinates(2, 4)
         } else {
-            coordinates = Coordinates(2, 2)
+            Coordinates(2, 2)
         }
     }
 }
