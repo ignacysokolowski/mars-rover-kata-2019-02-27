@@ -41,9 +41,11 @@ data class Direction(private val symbol: String) {
 data class Coordinates(private val horizontal: Int, private val vertical: Int) {
     fun movedIn(direction: Direction): Coordinates {
         return if (direction == Direction.north()) {
-            Coordinates(horizontal, 4)
+            movedVerticallyTo(4)
         } else {
             Coordinates(horizontal, 2)
         }
     }
+
+    private fun movedVerticallyTo(point: Int) = Coordinates(horizontal, point)
 }
