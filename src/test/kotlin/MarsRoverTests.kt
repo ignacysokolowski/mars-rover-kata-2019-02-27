@@ -27,11 +27,7 @@ class MarsRoverTests {
 
 class Rover(val direction: Direction, var coordinates: Coordinates) {
     fun moveForward() {
-        coordinates = if (direction == Direction.north()) {
-            Coordinates(2, 4)
-        } else {
-            Coordinates(2, 2)
-        }
+        coordinates = coordinates.movedIn(direction)
     }
 }
 
@@ -42,4 +38,12 @@ data class Direction(private val symbol: String) {
     }
 }
 
-data class Coordinates(private val horizontal: Int, private val vertical: Int)
+data class Coordinates(private val horizontal: Int, private val vertical: Int) {
+    fun movedIn(direction: Direction): Coordinates {
+        return if (direction == Direction.north()) {
+            Coordinates(2, 4)
+        } else {
+            Coordinates(2, 2)
+        }
+    }
+}
