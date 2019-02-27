@@ -43,7 +43,7 @@ data class Coordinates(private val horizontal: Int, private val vertical: Int) {
         return if (direction == Direction.north()) {
             movedVerticallyTo(4)
         } else {
-            Coordinates(horizontal, 2)
+            movedVerticallyTo(2)
         }
     }
 
