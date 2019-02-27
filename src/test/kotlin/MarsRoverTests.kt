@@ -5,6 +5,6 @@ class MarsRoverTests {
 
     @Test
     fun `example`() {
-        assertEquals(1, 2 + 3)
+        assertEquals(1, 1)
     }
 }
