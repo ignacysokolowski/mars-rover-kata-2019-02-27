@@ -16,17 +16,29 @@ class MarsRoverTests {
         rover.moveForward()
         assertEquals(Coordinates(2, 4), rover.coordinates)
     }
+
+    @Test
+    fun `moves forward south`() {
+        val rover = Rover(Direction.south(), Coordinates(2, 3))
+        rover.moveForward()
+        assertEquals(Coordinates(2, 2), rover.coordinates)
+    }
 }
 
 class Rover(val direction: Direction, var coordinates: Coordinates) {
     fun moveForward() {
-        coordinates = Coordinates(2, 4)
+        if (direction == Direction.north()) {
+            coordinates = Coordinates(2, 4)
+        } else {
+            coordinates = Coordinates(2, 2)
+        }
     }
 }
 
 data class Direction(private val symbol: String) {
     companion object {
         fun north() = Direction("N")
+        fun south() = Direction("S")
     }
 }
 
