@@ -5,7 +5,7 @@ import java.lang.IllegalArgumentException
 data class Coordinates(private val horizontal: Int, private val vertical: Int) {
 
     init {
-        if (horizontal < 0)
+        if (horizontal < 0 || vertical < 0)
             throw IllegalArgumentException()
     }
 

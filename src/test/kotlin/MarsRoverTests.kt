@@ -26,6 +26,12 @@ class MarsRoverTests {
     }
 
     @Test
+    fun `vertical coordinate can not be negative`() {
+        thrown.expect(IllegalArgumentException::class.java)
+        Rover(Direction.NORTH, Coordinates(2, -1))
+    }
+
+    @Test
     fun `moves forward north`() {
         assertMovesForward(Direction.NORTH, Coordinates(2, 3), Coordinates(2, 4))
     }
