@@ -2,19 +2,16 @@ package marsrover
 
 import java.lang.IllegalArgumentException
 
-class Rover(direction: Direction, coordinates: Coordinates, private val surface: Surface) {
+class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
     var direction = direction
         private set
     var coordinates = coordinates
         private set
 
     init {
-        if (!surfaceContains(coordinates))
+        if (!surface.contains(coordinates))
             throw IllegalArgumentException()
     }
-
-    private fun surfaceContains(coordinates: Coordinates) =
-        coordinates.horizontal <= surface.size && coordinates.vertical <= surface.size
 
     fun moveForward() {
         coordinates = coordinates.movedIn(direction)
