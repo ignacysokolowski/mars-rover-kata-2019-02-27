@@ -15,16 +15,18 @@ class MarsRoverTests {
 
     @Test
     fun `moves forward north`() {
-        val rover = Rover(Direction.NORTH, Coordinates(2, 3))
-        rover.moveForward()
-        assertEquals(Coordinates(2, 4), rover.coordinates)
+        assertMovesForward(Direction.NORTH, Coordinates(2, 3), Coordinates(2, 4))
     }
 
     @Test
     fun `moves forward south`() {
-        val rover = Rover(Direction.SOUTH, Coordinates(2, 3))
+        assertMovesForward(Direction.SOUTH, Coordinates(2, 3), Coordinates(2, 2))
+    }
+
+    private fun assertMovesForward(direction: Direction, from: Coordinates, to: Coordinates) {
+        val rover = Rover(direction, from)
         rover.moveForward()
-        assertEquals(Coordinates(2, 2), rover.coordinates)
+        assertEquals(to, rover.coordinates)
     }
 }
 
