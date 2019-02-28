@@ -9,9 +9,12 @@ class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
         private set
 
     init {
-        if (coordinates.horizontal > surface.size || coordinates.vertical > surface.size)
+        if (!surfaceContains(coordinates, surface))
             throw IllegalArgumentException()
     }
+
+    private fun surfaceContains(coordinates: Coordinates, surface: Surface) =
+        coordinates.horizontal <= surface.size && coordinates.vertical <= surface.size
 
     fun moveForward() {
         coordinates = coordinates.movedIn(direction)
