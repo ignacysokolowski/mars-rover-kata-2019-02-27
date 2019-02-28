@@ -2,6 +2,7 @@ import junit.framework.Assert.assertEquals
 import marsrover.Coordinates
 import marsrover.Direction
 import marsrover.Rover
+import marsrover.Surface
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
@@ -29,6 +30,12 @@ class MarsRoverTests {
     fun `vertical coordinate can not be negative`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover(Direction.NORTH, Coordinates(2, -1))
+    }
+
+    @Test
+    fun `can not land the rover outside of the surface`() {
+        thrown.expect(IllegalArgumentException::class.java)
+        Rover(Direction.NORTH, Coordinates(6, 3), Surface.ofSize(5))
     }
 
     @Test
