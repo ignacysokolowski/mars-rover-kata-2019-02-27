@@ -23,7 +23,7 @@ class Rover(direction: Direction, coordinates: Coordinates, private val surface:
     }
 
     fun moveBackward() {
-        coordinates = coordinates.movedIn(direction.opposite())
+        moveTo(coordinates.movedIn(direction.opposite()))
     }
 
     fun turnRight() {

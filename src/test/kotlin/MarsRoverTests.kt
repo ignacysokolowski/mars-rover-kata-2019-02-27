@@ -105,6 +105,11 @@ class MarsRoverTests {
     }
 
     @Test
+    fun `can not move backward outside of the surface when facing south`() {
+        assertMovesBackward(Direction.SOUTH, Coordinates(2, 5), Coordinates(2, 5))
+    }
+
+    @Test
     fun `turns right from north to east`() {
         assertTurnsRight(Direction.NORTH, Direction.EAST)
     }
