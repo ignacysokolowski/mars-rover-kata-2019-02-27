@@ -6,19 +6,14 @@ enum class Direction (val stepsEast: Int, val stepsNorth: Int) {
     SOUTH(0, -1),
     WEST(-1, 0);
 
-    fun nextToTheRight() = nextAtIndexOrElse(+1, values().first())
-    fun nextToTheLeft() = nextAtIndexOrElse(-1, values().last())
+    fun nextToTheRight() = nextAtIndexOrElse(+1) {values().first()}
+    fun nextToTheLeft() = nextAtIndexOrElse(-1) {values().last()}
 
     fun opposite(): Direction {
-        return when (this) {
-            NORTH -> SOUTH
-            SOUTH -> NORTH
-            EAST -> WEST
-            WEST -> EAST
-        }
+        return nextAtIndexOrElse(+2) {values().elementAt(this.ordinal - 2)}
     }
 
-    private fun nextAtIndexOrElse(index: Int, default: Direction): Direction {
-        return values().elementAtOrElse(this.ordinal + index) {default}
+    private fun nextAtIndexOrElse(index: Int, default: (Int) -> Direction): Direction {
+        return values().elementAtOrElse(this.ordinal + index, default)
     }
 }
