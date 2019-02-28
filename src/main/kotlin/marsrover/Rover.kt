@@ -1,8 +1,12 @@
 package marsrover
 
-class Rover(val direction: Direction, var coordinates: Coordinates) {
+class Rover(var direction: Direction, var coordinates: Coordinates) {
     fun moveForward() {
         coordinates = coordinates.movedIn(direction)
+    }
+
+    fun turnRight() {
+        direction = Direction.EAST
     }
 }
 

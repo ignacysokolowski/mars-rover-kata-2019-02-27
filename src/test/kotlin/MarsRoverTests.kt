@@ -33,6 +33,13 @@ class MarsRoverTests {
         assertMovesForward(Direction.WEST, Coordinates(2, 3), Coordinates(1, 3))
     }
 
+    @Test
+    fun `turns right from north to east`() {
+        val rover = Rover(Direction.NORTH, Coordinates(2, 3))
+        rover.turnRight()
+        assertEquals(Direction.EAST, rover.direction)
+    }
+
     private fun assertMovesForward(direction: Direction, from: Coordinates, to: Coordinates) {
         val rover = Rover(direction, from)
         rover.moveForward()
