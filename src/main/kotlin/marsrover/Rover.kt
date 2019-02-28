@@ -11,12 +11,7 @@ class Rover(direction: Direction, coordinates: Coordinates) {
     }
 
     fun moveBackward() {
-        coordinates = coordinates.movedIn(when (direction) {
-            Direction.NORTH -> Direction.SOUTH
-            Direction.SOUTH -> Direction.NORTH
-            Direction.EAST -> Direction.WEST
-            else -> Direction.EAST
-        })
+        coordinates = coordinates.movedIn(direction.opposite())
     }
 
     fun turnRight() {
