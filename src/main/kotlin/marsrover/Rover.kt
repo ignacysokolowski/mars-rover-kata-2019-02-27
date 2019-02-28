@@ -9,7 +9,7 @@ class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
         private set
 
     init {
-        if (coordinates.horizontal > surface.size)
+        if (coordinates.horizontal > surface.size || coordinates.vertical > surface.size)
             throw IllegalArgumentException()
     }
 

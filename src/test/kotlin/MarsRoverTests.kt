@@ -33,9 +33,15 @@ class MarsRoverTests {
     }
 
     @Test
-    fun `can not land the rover outside of the surface`() {
+    fun `can not land the rover outside of the surface to the east`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover(Direction.NORTH, Coordinates(6, 3), Surface.ofSize(5))
+    }
+
+    @Test
+    fun `can not land the rover outside of the surface to the north`() {
+        thrown.expect(IllegalArgumentException::class.java)
+        Rover(Direction.NORTH, Coordinates(2, 6), Surface.ofSize(5))
     }
 
     @Test
