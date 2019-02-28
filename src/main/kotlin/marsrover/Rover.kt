@@ -10,6 +10,10 @@ class Rover(direction: Direction, coordinates: Coordinates) {
         coordinates = coordinates.movedIn(direction)
     }
 
+    fun moveBackward() {
+        coordinates = coordinates.movedIn(Direction.SOUTH)
+    }
+
     fun turnRight() {
         direction = direction.nextToTheRight()
     }
