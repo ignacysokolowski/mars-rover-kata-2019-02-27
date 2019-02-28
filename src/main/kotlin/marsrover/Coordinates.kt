@@ -10,7 +10,7 @@ data class Coordinates(private val horizontal: Int, private val vertical: Int) {
     }
 
     fun movedIn(direction: Direction) = Coordinates(
-        horizontal + direction.stepsEast,
+        zeroIfNegative(horizontal + direction.stepsEast),
         zeroIfNegative(vertical + direction.stepsNorth)
     )
 
