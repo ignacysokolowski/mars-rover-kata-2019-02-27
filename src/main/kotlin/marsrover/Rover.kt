@@ -2,7 +2,7 @@ package marsrover
 
 import java.lang.IllegalArgumentException
 
-class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
+class Rover(direction: Direction, coordinates: Coordinates, private val surface: Surface) {
     var direction = direction
         private set
     var coordinates = coordinates
@@ -14,7 +14,9 @@ class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
     }
 
     fun moveForward() {
-        coordinates = coordinates.movedIn(direction)
+        val newCoordinates = coordinates.movedIn(direction)
+        if (surface.contains(newCoordinates))
+            coordinates = newCoordinates
     }
 
     fun moveBackward() {
