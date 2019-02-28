@@ -1,6 +1,6 @@
 package marsrover
 
-enum class Direction {
-    NORTH,
-    SOUTH
+enum class Direction (val stepsNorth: Int) {
+    NORTH(1),
+    SOUTH(-1)
 }
