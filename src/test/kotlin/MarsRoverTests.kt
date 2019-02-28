@@ -2,15 +2,27 @@ import junit.framework.Assert.assertEquals
 import marsrover.Coordinates
 import marsrover.Direction
 import marsrover.Rover
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.ExpectedException
+import java.lang.IllegalArgumentException
 
 class MarsRoverTests {
+
+    @get:Rule
+    val thrown = ExpectedException.none()!!
 
     @Test
     fun `lands with the given position`() {
         val rover = Rover(Direction.NORTH, Coordinates(2, 3))
         assertEquals(Direction.NORTH, rover.direction)
         assertEquals(Coordinates(2, 3), rover.coordinates)
+    }
+
+    @Test
+    fun `horizontal coordinate can not be negative`() {
+        thrown.expect(IllegalArgumentException::class.java)
+        Rover(Direction.NORTH, Coordinates(-1, 3))
     }
 
     @Test
