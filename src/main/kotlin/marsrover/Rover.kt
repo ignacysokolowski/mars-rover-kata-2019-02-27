@@ -14,7 +14,8 @@ class Rover(direction: Direction, coordinates: Coordinates) {
         coordinates = coordinates.movedIn(when (direction) {
             Direction.NORTH -> Direction.SOUTH
             Direction.SOUTH -> Direction.NORTH
-            else -> Direction.WEST
+            Direction.EAST -> Direction.WEST
+            else -> Direction.EAST
         })
     }
 
