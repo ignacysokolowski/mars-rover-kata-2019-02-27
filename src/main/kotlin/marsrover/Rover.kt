@@ -11,12 +11,7 @@ class Rover(direction: Direction, coordinates: Coordinates) {
     }
 
     fun turnRight() {
-        direction = when (direction) {
-            Direction.NORTH -> Direction.EAST
-            Direction.EAST -> Direction.SOUTH
-            Direction.SOUTH -> Direction.WEST
-            else -> Direction.NORTH
-        }
+        direction = direction.nextToTheRight()
     }
 }
 
