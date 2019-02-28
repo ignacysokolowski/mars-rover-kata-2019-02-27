@@ -7,6 +7,6 @@ enum class Direction (val stepsEast: Int, val stepsNorth: Int) {
     WEST(-1, 0);
 
     fun nextToTheRight() = nextAtIndexOrElse(this.ordinal + 1, values().first())
-    fun nextToTheLeft() = values().elementAtOrElse(this.ordinal - 1) {values().last()}
+    fun nextToTheLeft() = nextAtIndexOrElse(this.ordinal - 1, values().last())
     private fun nextAtIndexOrElse(index: Int, default: Direction) = values().elementAtOrElse(index) {default}
 }
