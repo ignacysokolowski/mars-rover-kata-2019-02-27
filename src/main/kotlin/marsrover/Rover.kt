@@ -11,12 +11,10 @@ class Rover(direction: Direction, coordinates: Coordinates) {
     }
 
     fun turnRight() {
-        direction = if (direction == Direction.NORTH) {
-            Direction.EAST
-        } else if (direction == Direction.EAST) {
-            Direction.SOUTH
-        } else {
-            Direction.WEST
+        direction = when (direction) {
+            Direction.NORTH -> Direction.EAST
+            Direction.EAST -> Direction.SOUTH
+            else -> Direction.WEST
         }
     }
 }
