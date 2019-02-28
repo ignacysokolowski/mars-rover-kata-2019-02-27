@@ -14,9 +14,12 @@ class Rover(direction: Direction, coordinates: Coordinates, private val surface:
     }
 
     fun moveForward() {
-        val newCoordinates = coordinates.movedIn(direction)
-        if (surface.contains(newCoordinates))
-            coordinates = newCoordinates
+        moveTo(coordinates.movedIn(direction))
+    }
+
+    private fun moveTo(coordinates: Coordinates) {
+        if (surface.contains(coordinates))
+            this.coordinates = coordinates
     }
 
     fun moveBackward() {
