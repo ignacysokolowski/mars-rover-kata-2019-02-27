@@ -2,14 +2,14 @@ package marsrover
 
 import java.lang.IllegalArgumentException
 
-class Rover(direction: Direction, coordinates: Coordinates, surface: Surface? = null) {
+class Rover(direction: Direction, coordinates: Coordinates, surface: Surface) {
     var direction = direction
         private set
     var coordinates = coordinates
         private set
 
     init {
-        if (surface != null && coordinates.horizontal > surface.size)
+        if (coordinates.horizontal > surface.size)
             throw IllegalArgumentException()
     }
 
