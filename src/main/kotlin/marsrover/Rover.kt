@@ -1,6 +1,9 @@
 package marsrover
 
-class Rover(var direction: Direction, var coordinates: Coordinates) {
+class Rover(direction: Direction, var coordinates: Coordinates) {
+    var direction = direction
+        private set
+
     fun moveForward() {
         coordinates = coordinates.movedIn(direction)
     }
