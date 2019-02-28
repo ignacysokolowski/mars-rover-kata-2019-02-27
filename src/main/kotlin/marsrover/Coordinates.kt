@@ -9,5 +9,5 @@ data class Coordinates(private val horizontal: Int, private val vertical: Int) {
         }
     }
 
-    private fun movedVerticallyBy(points: Int) = Coordinates(horizontal, vertical + points)
+    private fun movedVerticallyBy(points: Int) = copy(vertical = vertical + points)
 }
