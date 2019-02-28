@@ -13,5 +13,9 @@ class Rover(direction: Direction, coordinates: Coordinates) {
     fun turnRight() {
         direction = direction.nextToTheRight()
     }
+
+    fun turnLeft() {
+        direction = direction.nextToTheLeft()
+    }
 }
 
