@@ -14,7 +14,8 @@ class Rover(direction: Direction, coordinates: Coordinates) {
         direction = when (direction) {
             Direction.NORTH -> Direction.EAST
             Direction.EAST -> Direction.SOUTH
-            else -> Direction.WEST
+            Direction.SOUTH -> Direction.WEST
+            else -> Direction.NORTH
         }
     }
 }
