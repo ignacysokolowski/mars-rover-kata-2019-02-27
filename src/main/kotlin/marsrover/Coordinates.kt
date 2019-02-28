@@ -11,6 +11,8 @@ data class Coordinates(private val horizontal: Int, private val vertical: Int) {
 
     fun movedIn(direction: Direction) = Coordinates(
         horizontal + direction.stepsEast,
-        if (vertical + direction.stepsNorth < 0) 0 else vertical + direction.stepsNorth
+        zeroIfNegative(vertical + direction.stepsNorth)
     )
+
+    private fun zeroIfNegative(coordinate: Int) = if (coordinate < 0) 0 else coordinate
 }
