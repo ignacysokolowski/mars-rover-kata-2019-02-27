@@ -17,13 +17,13 @@ class Rover(direction: Direction, coordinates: Coordinates, private val surface:
         moveTo(coordinates.movedIn(direction))
     }
 
+    fun moveBackward() {
+        moveTo(coordinates.movedIn(direction.opposite()))
+    }
+
     private fun moveTo(coordinates: Coordinates) {
         if (surface.contains(coordinates))
             this.coordinates = coordinates
-    }
-
-    fun moveBackward() {
-        moveTo(coordinates.movedIn(direction.opposite()))
     }
 
     fun turnRight() {
