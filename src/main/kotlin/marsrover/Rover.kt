@@ -2,7 +2,7 @@ package marsrover
 
 import java.lang.IllegalArgumentException
 
-class Rover(direction: Direction, coordinates: Coordinates, private val surface: Surface) {
+class Rover(private val surface: Surface, direction: Direction, coordinates: Coordinates) {
     var direction = direction
         private set
     var coordinates = coordinates
