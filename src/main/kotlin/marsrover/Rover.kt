@@ -8,6 +8,16 @@ class Rover(private val surface: Surface, direction: Direction, coordinates: Coo
     var coordinates = coordinates
         private set
 
+    companion object {
+        fun landingOn(
+            surface: Surface,
+            direction: Direction,
+            coordinates: Coordinates
+        ): Rover {
+            return Rover(surface, direction, coordinates)
+        }
+    }
+
     init {
         if (!surface.contains(coordinates))
             throw IllegalArgumentException()
