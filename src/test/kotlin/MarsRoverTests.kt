@@ -17,25 +17,25 @@ class MarsRoverTests {
     }
 
     @Test
-    fun `horizontal coordinate can not be negative`() {
+    fun `can not land with negative horizontal coordinate`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(-1, 3)))
     }
 
     @Test
-    fun `vertical coordinate can not be negative`() {
+    fun `can not land with negative vertical coordinate`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(2, -1)))
     }
 
     @Test
-    fun `can not land the rover outside of the surface to the east`() {
+    fun `can not land outside of the surface to the east`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(6, 3)))
     }
 
     @Test
-    fun `can not land the rover outside of the surface to the north`() {
+    fun `can not land outside of the surface to the north`() {
         thrown.expect(IllegalArgumentException::class.java)
         Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(2, 6)))
     }
