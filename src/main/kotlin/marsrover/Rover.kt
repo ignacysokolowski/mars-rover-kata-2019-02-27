@@ -22,16 +22,16 @@ class Rover private constructor(
     }
 
     fun moveForward() {
-        moveTo(position.movedForward().coordinates)
+        moveTo(position.movedForward())
     }
 
     fun moveBackward() {
-        moveTo(position.movedBackward().coordinates)
+        moveTo(position.movedBackward())
     }
 
-    private fun moveTo(coordinates: Coordinates) {
-        if (surface.contains(coordinates))
-            this.coordinates = coordinates
+    private fun moveTo(position: Position) {
+        if (surface.contains(position.coordinates))
+            this.coordinates = position.coordinates
     }
 
     fun turnRight() {
