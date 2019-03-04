@@ -2,19 +2,15 @@ package marsrover
 
 import java.lang.IllegalArgumentException
 
-class Rover(private val surface: Surface, private var direction: Direction, private var coordinates: Coordinates) {
+class Rover private constructor(
+    private val surface: Surface,
+    private var direction: Direction,
+    private var coordinates: Coordinates
+) {
     val position: Position
         get() = Position(direction, coordinates)
 
     companion object {
-        fun landingOn(
-            surface: Surface,
-            direction: Direction,
-            coordinates: Coordinates
-        ): Rover {
-            return Rover(surface, direction, coordinates)
-        }
-
         fun landingOn(surface: Surface, position: Position): Rover {
             return Rover(surface, position.direction, position.coordinates)
         }

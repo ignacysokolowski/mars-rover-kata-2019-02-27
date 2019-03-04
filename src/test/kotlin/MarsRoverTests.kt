@@ -19,25 +19,25 @@ class MarsRoverTests {
     @Test
     fun `horizontal coordinate can not be negative`() {
         thrown.expect(IllegalArgumentException::class.java)
-        Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(-1, 3))
+        Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(-1, 3)))
     }
 
     @Test
     fun `vertical coordinate can not be negative`() {
         thrown.expect(IllegalArgumentException::class.java)
-        Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(2, -1))
+        Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(2, -1)))
     }
 
     @Test
     fun `can not land the rover outside of the surface to the east`() {
         thrown.expect(IllegalArgumentException::class.java)
-        Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(6, 3))
+        Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(6, 3)))
     }
 
     @Test
     fun `can not land the rover outside of the surface to the north`() {
         thrown.expect(IllegalArgumentException::class.java)
-        Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(2, 6))
+        Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(2, 6)))
     }
 
     @Test
@@ -151,25 +151,25 @@ class MarsRoverTests {
     }
 
     private fun assertMovesForward(direction: Direction, from: Coordinates, to: Coordinates) {
-        val rover = Rover.landingOn(Surface.ofSize(5), direction, from)
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(direction, from))
         rover.moveForward()
         assertEquals(Position(direction, to), rover.position)
     }
 
     private fun assertMovesBackward(direction: Direction, from: Coordinates, to: Coordinates) {
-        val rover = Rover.landingOn(Surface.ofSize(5), direction, from)
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(direction, from))
         rover.moveBackward()
         assertEquals(Position(direction, to), rover.position)
     }
 
     private fun assertTurnsRight(from: Direction, to: Direction) {
-        val rover = Rover.landingOn(Surface.ofSize(5), from, Coordinates(2, 3))
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, Coordinates(2, 3)))
         rover.turnRight()
         assertEquals(Position(to, Coordinates(2, 3)), rover.position)
     }
 
     private fun assertTurnsLeft(from: Direction, to: Direction) {
-        val rover = Rover.landingOn(Surface.ofSize(5), from, Coordinates(2, 3))
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, Coordinates(2, 3)))
         rover.turnLeft()
         assertEquals(Position(to, Coordinates(2, 3)), rover.position)
     }
