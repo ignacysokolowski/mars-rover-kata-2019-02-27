@@ -35,7 +35,7 @@ class Rover private constructor(
     }
 
     fun turnRight() {
-        direction = direction.nextToTheRight()
+        direction = position.turnedRight().direction
     }
 
     fun turnLeft() {
