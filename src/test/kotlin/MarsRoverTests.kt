@@ -183,7 +183,7 @@ class MarsRoverTests {
 class CoordinatesTests {
 
     @Test
-    fun `not further than another`() {
-        assertFalse(Coordinates(3, 5).furtherThan(Coordinates(4, 6)))
+    fun `not farther than another`() {
+        assertFalse(Coordinates(3, 5).fartherThan(Coordinates(4, 6)))
     }
 }
