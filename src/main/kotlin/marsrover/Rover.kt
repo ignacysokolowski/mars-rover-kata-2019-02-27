@@ -20,13 +20,9 @@ class Rover private constructor(
             throw IllegalArgumentException()
     }
 
-    fun moveForward() {
-        moveTo(position.movedForward())
-    }
+    fun moveForward() = moveTo(position.movedForward())
 
-    fun moveBackward() {
-        moveTo(position.movedBackward())
-    }
+    fun moveBackward() = moveTo(position.movedBackward())
 
     private fun moveTo(position: Position) {
         if (surface.contains(position.coordinates))
