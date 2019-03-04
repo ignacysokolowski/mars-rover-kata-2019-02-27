@@ -4,20 +4,19 @@ import java.lang.IllegalArgumentException
 
 class Rover private constructor(
     private val surface: Surface,
-    private var direction: Direction,
-    private var coordinates: Coordinates
+    position: Position
 ) {
-    val position: Position
-        get() = Position(direction, coordinates)
+    var position = position
+        private set
 
     companion object {
         fun landingOn(surface: Surface, position: Position): Rover {
-            return Rover(surface, position.direction, position.coordinates)
+            return Rover(surface, position)
         }
     }
 
     init {
-        if (!surface.contains(coordinates))
+        if (!surface.contains(position.coordinates))
             throw IllegalArgumentException()
     }
 
@@ -31,15 +30,15 @@ class Rover private constructor(
 
     private fun moveTo(position: Position) {
         if (surface.contains(position.coordinates))
-            this.coordinates = position.coordinates
+            this.position = position
     }
 
     fun turnRight() {
-        direction = position.turnedRight().direction
+        position = position.turnedRight()
     }
 
     fun turnLeft() {
-        direction = position.turnedLeft().direction
+        position = position.turnedLeft()
     }
 }
 
