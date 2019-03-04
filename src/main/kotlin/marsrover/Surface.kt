@@ -1,13 +1,11 @@
 package marsrover
 
-class Surface(private val size: Int) {
+class Surface(private val coordinates: Coordinates) {
 
     companion object {
-        fun ofSize(size: Int) = Surface(size)
+        fun ofSize(size: Int) = Surface(Coordinates(size, size))
     }
 
-    fun contains(coordinates: Coordinates) = !coordinates.fartherThan(this.coordinates())
-
-    private fun coordinates() = Coordinates(size, size)
+    fun contains(coordinates: Coordinates) = !coordinates.fartherThan(this.coordinates)
 
 }
