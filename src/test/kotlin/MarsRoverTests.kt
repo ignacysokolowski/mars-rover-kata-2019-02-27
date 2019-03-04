@@ -195,4 +195,9 @@ class CoordinatesTests {
     fun `farther north than another`() {
         assertTrue(Coordinates(3, 3).fartherThan(Coordinates(3, 2)))
     }
+
+    @Test
+    fun `farther east than another`() {
+        assertTrue(Coordinates(3, 3).fartherThan(Coordinates(2, 3)))
+    }
 }

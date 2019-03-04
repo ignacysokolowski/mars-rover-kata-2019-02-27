@@ -17,6 +17,6 @@ data class Coordinates(val horizontal: Int, val vertical: Int) {
     private fun zeroIfNegative(coordinate: Int) = if (coordinate < 0) 0 else coordinate
 
     fun fartherThan(other: Coordinates): Boolean {
-        return vertical > other.vertical
+        return vertical > other.vertical || horizontal > other.horizontal
     }
 }
