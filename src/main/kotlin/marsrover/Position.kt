@@ -1,3 +1,3 @@
 package marsrover
 
-data class Position(val direction: Direction, val coordinates: Coordinates)
+data class Position(internal val direction: Direction, internal val coordinates: Coordinates)
