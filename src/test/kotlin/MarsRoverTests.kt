@@ -163,16 +163,18 @@ class MarsRoverTests {
     }
 
     private fun assertTurnsRight(from: Direction, to: Direction) {
-        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, Coordinates(2, 3)))
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, defaultCoordinates()))
         rover.turnRight()
-        assertEquals(Position(to, Coordinates(2, 3)), rover.position)
+        assertEquals(Position(to, defaultCoordinates()), rover.position)
     }
 
     private fun assertTurnsLeft(from: Direction, to: Direction) {
-        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, Coordinates(2, 3)))
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(from, defaultCoordinates()))
         rover.turnLeft()
-        assertEquals(Position(to, Coordinates(2, 3)), rover.position)
+        assertEquals(Position(to, defaultCoordinates()), rover.position)
     }
+
+    private fun defaultCoordinates() = Coordinates(2, 3)
 }
 
 class CoordinatesTests {
