@@ -6,6 +6,8 @@ class Surface(private val size: Int) {
         fun ofSize(size: Int) = Surface(size)
     }
 
-    fun contains(coordinates: Coordinates) = coordinates.horizontal <= size && coordinates.vertical <= size
+    fun contains(coordinates: Coordinates) = !coordinates.fartherThan(this.coordinates())
+
+    private fun coordinates() = Coordinates(size, size)
 
 }
