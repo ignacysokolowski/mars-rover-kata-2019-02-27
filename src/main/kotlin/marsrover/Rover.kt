@@ -14,6 +14,10 @@ class Rover(private val surface: Surface, private var direction: Direction, priv
         ): Rover {
             return Rover(surface, direction, coordinates)
         }
+
+        fun landingOn(surface: Surface, position: Position): Rover {
+            return Rover(surface, position.direction, position.coordinates)
+        }
     }
 
     init {

@@ -12,7 +12,7 @@ class MarsRoverTests {
 
     @Test
     fun `lands with the given position`() {
-        val rover = Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(2, 3))
+        val rover = Rover.landingOn(Surface.ofSize(5), Position(Direction.NORTH, Coordinates(2, 3)))
         assertEquals(Position(Direction.NORTH, Coordinates(2, 3)), rover.position)
     }
 
