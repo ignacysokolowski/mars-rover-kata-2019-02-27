@@ -22,7 +22,7 @@ class Rover private constructor(
     }
 
     fun moveForward() {
-        moveTo(coordinates.movedIn(direction))
+        moveTo(position.movedForward().coordinates)
     }
 
     fun moveBackward() {
