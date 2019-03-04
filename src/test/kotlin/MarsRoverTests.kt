@@ -1,8 +1,5 @@
 import junit.framework.Assert.*
-import marsrover.Coordinates
-import marsrover.Direction
-import marsrover.Rover
-import marsrover.Surface
+import marsrover.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
@@ -18,6 +15,7 @@ class MarsRoverTests {
         val rover = Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(2, 3))
         assertEquals(Direction.NORTH, rover.direction)
         assertEquals(Coordinates(2, 3), rover.coordinates)
+        assertEquals(Position(Direction.NORTH, Coordinates(2, 3)), rover.position)
     }
 
     @Test

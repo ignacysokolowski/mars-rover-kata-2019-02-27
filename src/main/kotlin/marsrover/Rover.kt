@@ -7,6 +7,8 @@ class Rover(private val surface: Surface, direction: Direction, coordinates: Coo
         private set
     var coordinates = coordinates
         private set
+    val position: Position
+        get() = Position(direction, coordinates)
 
     companion object {
         fun landingOn(
