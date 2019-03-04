@@ -186,4 +186,9 @@ class CoordinatesTests {
     fun `not farther than another`() {
         assertFalse(Coordinates(3, 5).fartherThan(Coordinates(4, 6)))
     }
+
+    @Test
+    fun `as far as the other`() {
+        assertFalse(Coordinates(3, 3).fartherThan(Coordinates(3, 3)))
+    }
 }
