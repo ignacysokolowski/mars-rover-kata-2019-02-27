@@ -13,8 +13,6 @@ class MarsRoverTests {
     @Test
     fun `lands with the given position`() {
         val rover = Rover.landingOn(Surface.ofSize(5), Direction.NORTH, Coordinates(2, 3))
-        assertEquals(Direction.NORTH, rover.direction)
-        assertEquals(Coordinates(2, 3), rover.coordinates)
         assertEquals(Position(Direction.NORTH, Coordinates(2, 3)), rover.position)
     }
 
@@ -155,25 +153,25 @@ class MarsRoverTests {
     private fun assertMovesForward(direction: Direction, from: Coordinates, to: Coordinates) {
         val rover = Rover.landingOn(Surface.ofSize(5), direction, from)
         rover.moveForward()
-        assertEquals(to, rover.coordinates)
+        assertEquals(Position(direction, to), rover.position)
     }
 
     private fun assertMovesBackward(direction: Direction, from: Coordinates, to: Coordinates) {
         val rover = Rover.landingOn(Surface.ofSize(5), direction, from)
         rover.moveBackward()
-        assertEquals(to, rover.coordinates)
+        assertEquals(Position(direction, to), rover.position)
     }
 
     private fun assertTurnsRight(from: Direction, to: Direction) {
         val rover = Rover.landingOn(Surface.ofSize(5), from, Coordinates(2, 3))
         rover.turnRight()
-        assertEquals(to, rover.direction)
+        assertEquals(Position(to, Coordinates(2, 3)), rover.position)
     }
 
     private fun assertTurnsLeft(from: Direction, to: Direction) {
         val rover = Rover.landingOn(Surface.ofSize(5), from, Coordinates(2, 3))
         rover.turnLeft()
-        assertEquals(to, rover.direction)
+        assertEquals(Position(to, Coordinates(2, 3)), rover.position)
     }
 }
 
