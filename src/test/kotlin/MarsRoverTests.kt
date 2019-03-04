@@ -1,5 +1,4 @@
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertFalse
+import junit.framework.Assert.*
 import marsrover.Coordinates
 import marsrover.Direction
 import marsrover.Rover
@@ -190,5 +189,10 @@ class CoordinatesTests {
     @Test
     fun `as far as the other`() {
         assertFalse(Coordinates(3, 3).fartherThan(Coordinates(3, 3)))
+    }
+
+    @Test
+    fun `farther north than another`() {
+        assertTrue(Coordinates(3, 3).fartherThan(Coordinates(3, 2)))
     }
 }
